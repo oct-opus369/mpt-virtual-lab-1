@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simulation – Maximum Power Transfer – Virtual Circuits Lab</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<link rel="stylesheet" href="style.css"></head><body>
+<div class="top"><div><span class="mark">VC</span>Virtual Circuits Laboratory</div><span class="inst">[Your Institute Name]</span></div>
+<div class="crumb"><a href="experiments.html">Electrical Engineering</a> / <a href="experiments.html">Electrical Circuits Virtual Laboratory</a> / <a href="experiments.html">Experiments</a> / Simulation – Maximum Power Transfer</div>
+<header><small>Electrical Circuits Virtual Laboratory</small><h1>Experiment: Maximum Power Transfer Theorem</h1></header>
+<div class="wrap"><nav aria-label="Experiment sections"><a href="index.html">Aim</a><a href="theory.html">Theory</a><a href="pretest.html">Pretest</a><a href="procedure.html">Procedure</a><a href="simulation.html" class="on">Simulation</a><a href="posttest.html">Posttest</a><a href="report.html">Lab report</a><a href="references.html">References</a><a href="contributors.html">Contributors</a><a href="feedback.html">Feedback</a></nav><main><section class='on' style='display:block' id='simulation'><h2>Simulation</h2>
+<h3>Part A: find the Thévenin equivalent</h3>
+<p>A source V<sub>s</sub> feeds R<sub>1</sub> in series, and R<sub>2</sub> is connected across the output terminals. Calculate what the load will see, then check your answer. Hint: V<sub>th</sub> is the open-circuit voltage across R<sub>2</sub>; R<sub>th</sub> is R<sub>1</sub> in parallel with R<sub>2</sub> with the source shorted.</p>
+<div class="ctl" style="max-width:480px"><label>V<sub>s</sub> <output id="oS">20 V</output></label><input type="range" id="tS" min="4" max="48" step="2" value="20">
+<label>R<sub>1</sub> <output id="o1">10 Ω</output></label><input type="range" id="t1" min="1" max="50" step="1" value="10">
+<label>R<sub>2</sub> <output id="o2">10 Ω</output></label><input type="range" id="t2" min="1" max="50" step="1" value="10"></div>
+<p style="margin-top:12px"><input type="text" id="aV" placeholder="V_th in volts" aria-label="Your V_th" style="max-width:150px"> <input type="text" id="aR" placeholder="R_th in ohms" aria-label="Your R_th" style="max-width:150px"> <button id="aC">Check my answer</button> <button class="alt" id="aU">Use values in Part B</button></p>
+<div id="aF" class="fb" aria-live="polite"></div>
+<h3>Part B: vary the load</h3>
+<div class="sim">
+<div class="ctl">
+<svg viewBox="0 0 300 200" role="img" aria-label="Circuit with source, source resistance and variable load" width="100%">
+<g fill="none" stroke="currentColor" stroke-width="2" style="color:var(--ink)">
+<path d="M40 40H90M130 40H180M220 40H260V160H40V40"/><circle cx="40" cy="100" r="0"/>
+<path d="M40 40V84M40 116V160" stroke="none"/>
+<path d="M30 84H50M36 94H44M30 104H50M36 114H44" transform="translate(0,-6)"/>
+<path d="M90 40l6-12 12 24 12-24 12 24 6-12" transform="translate(0,0)" stroke="var(--teal)"/>
+<rect x="240" y="80" width="40" height="40" stroke="var(--amber)"/></g>
+<text x="50" y="102" font-size="13">V<tspan font-size="10" dy="3">th</tspan></text>
+<text x="104" y="20" font-size="13" text-anchor="middle">R<tspan font-size="10" dy="3">th</tspan></text>
+<text x="210" y="100" font-size="13" text-anchor="end">R<tspan font-size="10" dy="3">L</tspan></text>
+<text id="cV" x="40" y="182" font-size="12">12 V</text><text id="cR" x="104" y="60" font-size="12" text-anchor="middle">10 Ω</text><text id="cL" x="260" y="140" font-size="12" text-anchor="middle">10 Ω</text>
+<circle cx="200" cy="40" r="14" fill="var(--panel)" stroke="var(--ink)" stroke-width="2"/><text x="200" y="45" font-size="13" text-anchor="middle">A</text><text id="mA" x="200" y="68" font-size="11" text-anchor="middle"></text>
+</svg>
+<label>Source voltage V<sub>th</sub> <output id="oV">12 V</output></label><input type="range" id="V" min="2" max="24" step="1" value="12">
+<label>Source resistance R<sub>th</sub> <output id="oR">10 Ω</output></label><input type="range" id="R" min="1" max="50" step="1" value="10">
+<label>Load resistance R<sub>L</sub> <output id="oL">10 Ω</output></label><input type="range" id="L" min="0.5" max="100" step="0.5" value="10">
+<div class="read"><div><b id="rI">–</b><span>Current (A)</span></div><div><b id="rV">–</b><span>Load voltage (V)</span></div><div><b id="rP">–</b><span>Load power (W)</span></div><div><b id="rE">–</b><span>Efficiency (%)</span></div><div><b id="rM">–</b><span>P<sub>max</sub> (W)</span></div><div><b id="rT">–</b><span>Load power ÷ P<sub>max</sub></span></div></div>
+<div id="hit" aria-live="polite"></div>
+</div>
+<div>
+<svg id="chart" viewBox="0 0 440 300" width="100%" role="img" aria-label="Load power versus load resistance"></svg>
+<p style="margin:6px 0 10px"><button id="rec">Record reading</button> <button class="alt" id="th">Show theoretical curve</button> <button class="alt" id="clr">Clear readings</button></p>
+</div></div>
+<h3>Observations</h3>
+<div class="scroll"><table><thead><tr><th>#</th><th>R<sub>L</sub> (Ω)</th><th>I (A)</th><th>V<sub>L</sub> (V)</th><th>P<sub>L</sub> (W)</th><th>η (%)</th></tr></thead><tbody id="tb"><tr><td colspan="6" style="text-align:center;color:var(--mute)">No readings yet. Move the load slider and click Record reading.</td></tr></tbody></table></div>
+</section></main></div>
+<footer><div class="cols">
+<div><b>Community links</b><a href="https://www.sakshat.ac.in/">Sakshat Portal</a><a href="http://outreach.vlabs.ac.in/">Outreach Portal</a><a href="https://vlab.co.in/faq">FAQ: Virtual Labs</a></div>
+<div><b>Contact us</b>[Your Institute Name]<br>[Department name]<br>Email: [team email]</div>
+<div><b>Lab</b><a href="experiments.html">List of experiments</a><a href="contributors.html">Contributors</a><a href="feedback.html">Feedback</a></div></div>
+<div class="sub">Page layout follows the Virtual Labs format (vlab.co.in). Add your licence line here.</div></footer>
+<script src="common.js"></script><script src="sim.js"></script></body></html>

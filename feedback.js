@@ -1,0 +1,1 @@
+$("fs").onclick=()=>{const b=encodeURIComponent(`Name: ${$("fn").value}\nRating: ${$("fr").value}\n\n${$("fm").value}`);location.href="mailto:YOUR-EMAIL@example.com?subject=MPT%20Virtual%20Lab%20Feedback&body="+b};

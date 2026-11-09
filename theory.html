@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theory – Maximum Power Transfer – Virtual Circuits Lab</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<link rel="stylesheet" href="style.css"></head><body>
+<div class="top"><div><span class="mark">VC</span>Virtual Circuits Laboratory</div><span class="inst">[Your Institute Name]</span></div>
+<div class="crumb"><a href="experiments.html">Electrical Engineering</a> / <a href="experiments.html">Electrical Circuits Virtual Laboratory</a> / <a href="experiments.html">Experiments</a> / Theory – Maximum Power Transfer</div>
+<header><small>Electrical Circuits Virtual Laboratory</small><h1>Experiment: Maximum Power Transfer Theorem</h1></header>
+<div class="wrap"><nav aria-label="Experiment sections"><a href="index.html">Aim</a><a href="theory.html" class="on">Theory</a><a href="pretest.html">Pretest</a><a href="procedure.html">Procedure</a><a href="simulation.html">Simulation</a><a href="posttest.html">Posttest</a><a href="report.html">Lab report</a><a href="references.html">References</a><a href="contributors.html">Contributors</a><a href="feedback.html">Feedback</a></nav><main><section class='on' style='display:block' id='theory'><h2>Theory</h2>
+<p>Any linear network seen from two terminals can be replaced by a Thévenin equivalent: a voltage source V<sub>th</sub> in series with a resistance R<sub>th</sub>. When a load R<sub>L</sub> is connected, the current is</p>
+<div class="eq">I = V<sub>th</sub> / (R<sub>th</sub> + R<sub>L</sub>)</div>
+<p>and the power absorbed by the load is</p>
+<div class="eq">P<sub>L</sub> = I²R<sub>L</sub> = V<sub>th</sub>² R<sub>L</sub> / (R<sub>th</sub> + R<sub>L</sub>)²</div>
+<h3>Condition for maximum power</h3>
+<p>Set dP<sub>L</sub>/dR<sub>L</sub> = 0:</p>
+<div class="eq">(R<sub>th</sub> + R<sub>L</sub>)² − 2R<sub>L</sub>(R<sub>th</sub> + R<sub>L</sub>) = 0 &nbsp;⇒&nbsp; R<sub>L</sub> = R<sub>th</sub></div>
+<p>The second derivative is negative at this point, so it is a maximum. The maximum power is</p>
+<div class="eq">P<sub>max</sub> = V<sub>th</sub>² / (4R<sub>th</sub>)</div>
+<h3>Efficiency</h3>
+<p>Efficiency η = P<sub>L</sub> / P<sub>source</sub> = R<sub>L</sub> / (R<sub>th</sub> + R<sub>L</sub>). At R<sub>L</sub> = R<sub>th</sub>, η = 50%. Power systems therefore aim for high efficiency, not maximum power; maximum power transfer matters in communication and signal circuits.</p>
+<h3>AC circuits</h3>
+<p>For sinusoidal sources, maximum power is delivered when Z<sub>L</sub> = Z<sub>th</sub>* (the complex conjugate of the source impedance).</p>
+<h3>Applications</h3><ul><li>Audio: matching a speaker to an amplifier stage that must deliver as much signal power as possible.</li><li>Antennas and radio: matching the transmitter, cable and antenna so power is not reflected back.</li><li>Solar panels: maximum power point tracking sets the operating load so the panel gives its peak output.</li><li>Sensors and wireless charging, where the little power available matters more than efficiency.</li></ul>
+<h3>Viva questions</h3><p>Try answering each one before opening it.</p>
+<details><summary>State the maximum power transfer theorem.</summary><p>A DC source delivers maximum power to a load when the load resistance equals the Thévenin resistance of the source network.</p></details>
+<details><summary>What is the efficiency at maximum power transfer?</summary><p>50%, because the same current flows through R<sub>th</sub> and R<sub>L</sub>, so half the power is lost inside the source.</p></details>
+<details><summary>Why do power stations not work at maximum power transfer?</summary><p>They need high efficiency. At the matched condition half the generated power would be wasted.</p></details>
+<details><summary>What happens to load power if R<sub>L</sub> = 0 or R<sub>L</sub> → ∞?</summary><p>It is zero in both cases: at R<sub>L</sub> = 0 the voltage across the load is zero, and at R<sub>L</sub> → ∞ the current is zero.</p></details>
+<details><summary>How do you find R<sub>th</sub> of a network?</summary><p>Remove the load, replace independent voltage sources by short circuits and current sources by open circuits, then find the resistance between the load terminals.</p></details>
+<details><summary>What is the condition for AC circuits?</summary><p>Z<sub>L</sub> = Z<sub>th</sub>*, the complex conjugate of the source impedance.</p></details></section></main></div>
+<footer><div class="cols">
+<div><b>Community links</b><a href="https://www.sakshat.ac.in/">Sakshat Portal</a><a href="http://outreach.vlabs.ac.in/">Outreach Portal</a><a href="https://vlab.co.in/faq">FAQ: Virtual Labs</a></div>
+<div><b>Contact us</b>[Your Institute Name]<br>[Department name]<br>Email: [team email]</div>
+<div><b>Lab</b><a href="experiments.html">List of experiments</a><a href="contributors.html">Contributors</a><a href="feedback.html">Feedback</a></div></div>
+<div class="sub">Page layout follows the Virtual Labs format (vlab.co.in). Add your licence line here.</div></footer>
+</body></html>
